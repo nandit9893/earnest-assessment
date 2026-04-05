@@ -273,6 +273,7 @@ const Dashboard = () => {
       setLoading(false);
     }
   }, [user?.accessToken]);
+  
 
   useEffect(() => {
     if (user?.accessToken) {
@@ -296,7 +297,7 @@ const Dashboard = () => {
 
   if (loading) {
     return (
-      <div className="p-6">
+      <div className="p-2 md:p-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
           {[...Array(8)].map((_, i) => (
             <div key={i} className="bg-white dark:bg-[#0b1739] rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 animate-pulse">
@@ -331,11 +332,8 @@ const Dashboard = () => {
   return (
     <div className="p-2 md:p-6 space-y-6 overflow-hidden">
       {/* Header */}
-      <div className="flex justify-between items-center">
+      <div className="flex md:flex-row flex-col justify-start md:justify-between items-start md:items-center">
         <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Dashboard</h1>
-        <p className="text-sm text-gray-500 dark:text-gray-400">
-          Last updated: {new Date().toLocaleDateString()}
-        </p>
       </div>
 
       {/* Stats Grid */}

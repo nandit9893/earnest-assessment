@@ -214,16 +214,16 @@ const Employees = () => {
         (
           user?.currentUser?.role?.permissions?.includes("Read") && (
             <div className="flex flex-col md:gap-0 gap-3 w-full bg-white dark:bg-[#0b1739] border dark:border-gray-600 border-gray-300 rounded-md px-2 md:px-6 py-3">
-              <div className="flex justify-between w-full items-center">
+              <div className="flex md:flex-row md:gap-y-0 gap-y-2 flex-col justify-start md:justify-between w-full items-start md:items-center">
                 <p className="text-[16px] leading-6.5 text-black font-normal dark:text-white">{pageName} List ({employees?.pagination?.totalCount ?? 0})</p>
                 {
                   user?.currentUser?.role?.permissions?.includes("Create") && (
-                    <button type="button" disabled={user?.loading} onClick={() => setAddNewEmployee(true)} className="border cursor-pointer font-normal dark:border-gray-600 border-gray-300 rounded-md text-black hover:text-white dark:text-white text-[14px] leading-6 px-5 py-0.5 transition-all hover:bg-[#7b57e0] dark:hover:bg-sky-500">Add New Employee</button>
+                    <button type="button" disabled={user?.loading} onClick={() => setAddNewEmployee(true)} className="border cursor-pointer font-normal dark:border-gray-600 border-gray-300 rounded-md text-black hover:text-white dark:text-white text-[14px] dark:bg-[#081028] leading-6 px-5 py-0.5 transition-all hover:bg-[#7b57e0] dark:hover:bg-sky-500">Add New Employee</button>
                   )
                 }
               </div>
-              <div className="w-full flex-wrap whitespace-nowrap flex justify-start md:gap-0 gap-5 md:justify-between">
-                <div className="flex gap-10 items-center">
+              <div className="w-full flex-wrap whitespace-nowrap flex justify-start md:gap-0 gap-2 md:justify-between">
+                <div className="flex md:flex-row flex-wrap gap-x-5 gap-y-3 md:gap-10 items-center">
                   <DropDown items={itemsLimit} selectedItem={limit} buttonLabel="Items Per Page" disabled={user?.loading} isOpen={openLimit} setIsOpen={setOpenLimit} onSelect={selectLimit} dropdownRef={limitRef} fieldKey="limit" />
                   <DropDown items={roles} selectedItem={selectedRoleName} buttonLabel={getFieldLabel("role") || "Role"} disabled={user?.loading} isOpen={openRoles} setIsOpen={setOpenRoles} onSelect={selectRole} dropdownRef={rolesRef} fieldKey="roleType"  />
                   {
@@ -244,7 +244,7 @@ const Employees = () => {
                     )
                   }
                 </div>
-                <form onSubmit={searchSubmitForm} className="flex flex-col">
+                <form onSubmit={searchSubmitForm} className="flex flex-col w-full md:w-auto">
                   <p className="text-[16px] leading-6.5 text-black font-normal dark:text-white">Search</p>
                   <div className="flex gap-2 items-center bg-white px-3 py-1.5 dark:bg-[#081028] border border-gray-300 dark:border-gray-600 rounded-md shadow transition-all duration-300 ease-in-out focus-within:border-[#7b57e0] focus-within:shadow-[0_0_8px_0_rgba(0,132,165,0.3)]">
                     <input type="text" name="search" className="w-full md:w-60 outline-none text-[14px] text-[#334155] dark:text-white font-normal" placeholder="Search... (min. 4 characters)" value={searchInput} onChange={handleSearchInputChange} />

@@ -44,3 +44,30 @@
   list-style-type: decimal;
   padding-left: 40px;
 }
+
+.jodit-container {
+  max-width: 100%;
+  overflow-x: auto;
+}
+.jodit-wysiwyg {
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+.jodit-toolbar {
+  flex-wrap: wrap;
+  overflow-x: auto;
+}
+@media (max-width: 768px) {
+  .jodit-container:not(.jodit_inline) .jodit-workplace {
+    overflow-x: auto;
+  }
+  .jodit-toolbar__box {
+    overflow-x: auto;
+    max-width: 100%;
+  }
+  .jodit-toolbar-editor-collection {
+    flex-wrap: wrap;
+    min-width: max-content;
+  }
+}

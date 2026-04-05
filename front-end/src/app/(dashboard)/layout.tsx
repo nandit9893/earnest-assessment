@@ -66,7 +66,7 @@ export default function DashboardLayout({
             setIsLeftSideBarOpen={setIsLeftSideBarOpen}
           />
         </div>
-        <main className="flex-1 overflow-y-auto p-4 md:p-10 bg-[#F9FAFB] dark:bg-[#081028] custom-scrollbar">
+        <main className="flex-1 overflow-y-auto p-2 md:p-10 bg-[#F9FAFB] dark:bg-[#081028] custom-scrollbar">
           {children}
         </main>
       </div>

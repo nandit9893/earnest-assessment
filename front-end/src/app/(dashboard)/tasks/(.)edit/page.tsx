@@ -65,13 +65,20 @@ const EditTask: React.FC<EditTaskProps> = ({
       askBeforePasteFromWord: false,
       disablePlugins: ["paste"],
       uploader: { insertImageAsBase64URI: true },
-      toolbarAdaptive: false,
+      toolbarAdaptive: true,
       toolbarSticky: false,
       showCharsCounter: false,
       showWordsCounter: false,
       showXPathInStatusbar: false,
       defaultActionOnPaste: "insert_as_html" as any,
       beautifyHTML: false,
+      theme: 'default',
+      language: 'en',
+      controls: {
+      fontsize: {
+        list: [8,9,10,11,12,14,16,18,20,22,24,26,28,36,48],
+        },
+      },
     }),
     [taskData?.description],
   );
@@ -413,8 +420,14 @@ const EditTask: React.FC<EditTaskProps> = ({
                             <p className="text-[16px] leading-7 text-black font-normal">{getFieldLabel("description")}</p>
                             <Star className="text-red-400 mt-1 fill-current" size={11} />
                           </div>
-                          <div className="w-full border">
-                            <JoditEditor ref={editor} value={taskData?.description} config={config} onBlur={handleChange} className="w-full rounded-xl" />
+                          <div className="w-full overflow-x-auto">
+                            <JoditEditor 
+                              ref={editor} 
+                              value={taskData?.description} 
+                              config={config} 
+                              onBlur={handleChange} 
+                              className="w-full rounded-xl" 
+                            />
                           </div>
                         </div>
                       )
@@ -422,7 +435,7 @@ const EditTask: React.FC<EditTaskProps> = ({
                       (
                         <div className="flex flex-col gap-0.5 w-full">
                           <p className="text-[16px] leading-7 text-black font-normal">{getFieldLabel("description")}</p>
-                          <div className="w-full border">
+                          <div className="w-full border overflow-x-auto">
                             <div dangerouslySetInnerHTML={{ __html: taskData?.description || "" }} className="border-gray-200 shadow border bg-white custom-scrollbar rounded-sm px-3 py-0.5 h-48 overflow-y-auto" />
                           </div>
                         </div>

@@ -2,8 +2,8 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useDispatch, useSelector } from "react-redux";
-import { resetUserState, verifyOTPFailure, verifyOTPStart, verifyOTPSuccess } from "@/Redux/User/UserSlice";
-import { verifyOTP } from "@/Utils/API/auth";
+import { forgotPasswordFailure, forgotPasswordStart, forgotPasswordSuccess, resetUserState, verifyOTPFailure, verifyOTPStart, verifyOTPSuccess } from "@/Redux/User/UserSlice";
+import { forgotPasswordRes, verifyOTP } from "@/Utils/API/auth";
 import AuthSideBar from "@/Components/AuthSideBar";
 import { Loader, Star } from "lucide-react";
 import Link from "next/link";
@@ -16,6 +16,8 @@ const VerifyOTP = () => {
   const [email, setEmail] = useState("");
   const [otp, setOtp] = useState(["", "", "", "", "", ""]);
   const [remainingSeconds, setRemainingSeconds] = useState(0);
+
+  const [sentMail, reSentMail] = useState("");
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>, index: number) => {
     if (e.key === "Backspace" && !otp[index] && index > 0) {
@@ -81,6 +83,18 @@ const VerifyOTP = () => {
           element.blur();
         }
       }
+    }
+  };
+
+  const resenttHandler = async (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    const email = user?.currentUser?.email;
+    dispatch(forgotPasswordStart());
+    const result = await forgotPasswordRes(email);
+    if (result.success) {
+      dispatch(forgotPasswordSuccess(result?.data));
+    } else {
+      dispatch(forgotPasswordFailure(result?.message));
     }
   };
 
@@ -163,7 +177,7 @@ const VerifyOTP = () => {
                 {
                   remainingSeconds === 0 ?
                   (
-                    <button disabled={user?.loading} className="text-[14px] leading-6 text-[#E6C97A] font-normal cursor-pointer disabled:cursor-not-allowed disabled:opacity-50" type="button">Resend OTP</button>
+                    <button disabled={user?.loading} type="button" onClick={resenttHandler} className="text-[14px] leading-6 text-[#E6C97A] font-normal cursor-pointer disabled:cursor-not-allowed disabled:opacity-50">Resend OTP</button>
                   )
                   :
                   (

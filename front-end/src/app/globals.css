@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* globals.css */
+::-webkit-scrollbar {
+  height: 8px;
+  border-radius: 5px;
+}
+
+/* Custom scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #7b57e0;
+  border-radius: 999px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #6a48d7;
+}
+
+/* Dark mode */
+.dark .custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #eab308;
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #d4a106;
+}
+
+.jodit-wysiwyg ul {
+  list-style-type: disc;
+  padding-left: 40px;
+}
+
+.jodit-wysiwyg ol {
+  list-style-type: decimal;
+  padding-left: 40px;
+}

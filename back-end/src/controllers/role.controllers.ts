@@ -2,7 +2,7 @@ import express from "express";
 import type { Request, Response } from "express";
 import Role from "../models/role.models.ts";
 
-const ALLOWED_PERMISSIONS = ["Read", "Write", "Update", "Delete"];
+const ALLOWED_PERMISSIONS = ["Read", "Create", "Update", "Delete"];
 
 const createRole = async (req: Request, res: Response) => {
   const { roleType, permissions } = req.body || {};
@@ -64,7 +64,7 @@ const createRole = async (req: Request, res: Response) => {
 };
 
 const updateRole = async (req: Request, res: Response) => {
-  const { roleID } = req.params;
+  const { roleID } = req.params as { roleID: string };
   const { roleType, permissions } = req.body || {};
   const adminId = req.employee?._id;
 

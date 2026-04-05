@@ -1,8 +1,10 @@
 import mongoose, { Document, Model } from "mongoose";
 
+type Permission = "Read" | "Create" | "Update" | "Delete" | "Others";
+
 export interface IRole extends Document {
   roleType: string;
-  permissions: [];
+  permissions: Permission[];
   createdBy?: mongoose.Types.ObjectId;
   modifiedBy?: mongoose.Types.ObjectId;
 }

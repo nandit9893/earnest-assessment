@@ -5,8 +5,6 @@ import ModuleField from "../models/module.field.models.ts";
 const getModuleFields = async (req: Request, res: Response) => {
   const moduleId = req.query.moduleId as string;
   const showQuery = req.query.show as string | undefined;
-
-  // Validate moduleId
   if (!moduleId) {
     return res.status(400).json({
       success: false,

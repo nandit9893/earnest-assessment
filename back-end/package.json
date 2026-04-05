@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --watch src --ext ts,json --exec \"ts-node\" src/index.ts",
+    "dev": "nodemon --watch src --ext ts,json --exec \"tsx\" src/index.ts",
     "build": "tsc",
     "start": "node dist/index.js"
   },
@@ -24,6 +24,7 @@
     "nodemon": "^3.1.10",
     "prettier": "^3.5.3",
     "ts-node": "^10.9.2",
+    "tsx": "^4.21.0",
     "typescript": "^6.0.2"
   },
   "dependencies": {

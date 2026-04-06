@@ -392,7 +392,7 @@ const forgotPassword = async (req: Request, res: Response) => {
       otp,
     };
 
-    sendOTPEmail(employeeDetails, otpTimer);
+    await sendOTPEmail(employeeDetails, otpTimer);
     const employeeData = {
        _id: employee._id,
       firstName: employee.firstName,

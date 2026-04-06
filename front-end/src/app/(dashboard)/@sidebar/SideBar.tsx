@@ -93,7 +93,7 @@ const SideBar: React.FC<SideBarProps> = ({setIsLeftSideBarOpen, isLeftSideBarOpe
               const IconComponent = getIconByID(module?.iconName) as any;
               if (!IconComponent) return null;
               return (
-                <Link href={module?.slug} key={module?._id} onClick={() => changeSidebarModule(module?._id)} className={`flex gap-3 border-none outline-none cursor-pointer items-center w-full py-1 rounded-md px-5 overflow-hidden transition-all duration-300 ${user?.currentModule  === module?._id ? "border-l-4 border-solid border-[#7b57e0] bg-[#f3f2fc] dark:bg-[#0b1739] dark:text-white text-[#7b57e0] font-semibold" : "dark:hover:bg-[#7b57e0] hover:bg-gray-200 dark:text-white text-black font-medium"} hover:border-sky-500 dark:hover:border-white hover:text-sky-500 dark:hover:text-white hover:translate-x-1`}>
+                <Link href={module?.slug} key={module?._id} onClick={() => changeSidebarModule(module?._id)} className={`flex gap-3 border-none outline-none cursor-pointer items-center w-full py-1 rounded-md px-5 overflow-hidden transition-all duration-300 ${user?.currentModule  === module?._id ? "border-l-4 border-solid border-[#7b57e0] bg-[#f3f2fc] dark:bg-[#0b1739] dark:text-white text-[#7b57e0] font-medium" : "dark:hover:bg-[#7b57e0] hover:bg-gray-200 dark:text-white text-black font-normal"} hover:border-sky-500 dark:hover:border-white hover:text-sky-500 dark:hover:text-white hover:translate-x-1`}>
                   <div className="w-6 h-6 flex items-center justify-center">
                     {IconComponent && <IconComponent className={`w-full h-full ${user?.currentModule  === module?._id ? "fill-current": "fill-none" }`} />}
                   </div>
@@ -102,12 +102,6 @@ const SideBar: React.FC<SideBarProps> = ({setIsLeftSideBarOpen, isLeftSideBarOpe
               )
             })
           } 
-        </div>
-        <div className="w-full px-2">
-          <button type="button" disabled={user?.loading} onClick={logut} className="flex gap-3 outline-none cursor-pointer mt-60 items-center w-full py-1 rounded-md px-5 overflow-hidden font-medium bg-white hover:bg-[#7b57e0] border border-[#7b57e0] transition-all duration-300 dark:bg-[#0b1739] text-black dark:text-gray-300 hover:text-white">
-            <Icons.LogOut size={25} />
-            <p className="text-[14px] leading-6 text-left w-full">Logout</p>
-          </button>
         </div>
       </div>
 
@@ -140,12 +134,6 @@ const SideBar: React.FC<SideBarProps> = ({setIsLeftSideBarOpen, isLeftSideBarOpe
                 )
               })
             }
-            <div className="w-full px-2">
-              <button type="button" disabled={user?.loading} onClick={logut} className="flex gap-3 outline-none cursor-pointer mt-60 items-center w-full py-1 rounded-md px-5 overflow-hidden font-medium bg-white hover:bg-[#7b57e0] border dark:text-gray-300 border-[#7b57e0] transition-all duration-300 dark:bg-[#0b1739] text-black hover:text-white">
-                <Icons.LogOut size={25} />
-                <p className="text-[14px] leading-6 text-left w-full">Logout</p>
-              </button>
-            </div>
           </div>
         )
       }

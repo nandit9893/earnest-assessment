@@ -14,6 +14,7 @@ import moduleRouter from "./routes/modules.routes.ts";
 import moduleFieldRouter from "./routes/modules.field.routes.ts";
 import typeDefs from "./graphql/type.graphql.ts";
 import resolvers from "./graphql/resolver.graphql.ts";
+import logger from "./utils/combined.log.ts";
 
 const app = express();
 const FRONTEND_URL = (process.env.FRONTEND_URL || "http://localhost:3000").trim();
@@ -24,6 +25,11 @@ app.use(
     credentials: true,
   })
 );
+
+app.use((req, res, next) => {
+  logger.info(`${req.method} ${req.url}`);
+  next();
+});
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

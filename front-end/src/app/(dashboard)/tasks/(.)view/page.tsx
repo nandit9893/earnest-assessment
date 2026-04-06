@@ -96,27 +96,27 @@ const ViewTask: React.FC<ViewTaskProps> = ({ closeModal, showViewTask, taskID })
                       <div className="grid grid-cols-1 md:grid-cols-2 w-full gap-x-8 gap-y-2">
                         <div className="flex flex-col gap-0.5 w-full">
                           <p className="text-[16px] leading-7 text-black font-normal">{getFieldLabel("taskName")}</p>
-                          <p className="bg-[#F9FAFB] placeholder:text-gray-400 font-normal text-black border-gray-200 shadow outline-none text-[14px] leading-6 placeholder:text-[12px] placeholder:leading-5.5 py-0.5 px-3 rounded-md border">{taskData?.taskName}</p>
+                          <p className="bg-[#F9FAFB] font-normal text-black border-gray-200 shadow outline-none text-[14px] leading-6 py-0.5 px-3 rounded-md border">{taskData?.taskName}</p>
                         </div>
                         <div className="flex flex-col gap-0.5 w-full">
                           <p className="text-[16px] leading-7 text-black font-normal">{getFieldLabel("status")}</p>
-                          <p className="bg-[#F9FAFB] placeholder:text-gray-400 font-normal text-black border-gray-200 shadow outline-none text-[14px] leading-6 placeholder:text-[12px] placeholder:leading-5.5 py-0.5 px-3 rounded-md border">{taskData?.status}</p>
+                          <p className="bg-[#F9FAFB] font-normal text-black border-gray-200 shadow outline-none text-[14px] leading-6 py-0.5 px-3 rounded-md border">{taskData?.status}</p>
                         </div>
                         <div className="flex flex-col gap-0.5 w-full">
                           <p className="text-[16px] leading-7 text-black font-normal">{getFieldLabel("startDate")}</p>
-                          <p className="bg-[#F9FAFB] placeholder:text-gray-400 font-normal text-black border-gray-200 shadow outline-none text-[14px] leading-6 placeholder:text-[12px] placeholder:leading-5.5 py-0.5 px-3 rounded-md border">{taskData?.startDate ? formatDate(new Date(taskData?.startDate)) : " "}</p>
+                          <p className="bg-[#F9FAFB] font-normal text-black border-gray-200 shadow outline-none text-[14px] leading-6 py-0.5 px-3 rounded-md border">{taskData?.startDate ? formatDate(new Date(taskData?.startDate)) : " "}</p>
                         </div>
                         <div className="flex flex-col gap-0.5 w-full">
                           <p className="text-[16px] leading-7 text-black font-normal">{getFieldLabel("completedDate")}</p>
-                          <p className="bg-[#F9FAFB] placeholder:text-gray-400 font-normal text-black border-gray-200 shadow outline-none text-[14px] leading-6 placeholder:text-[12px] placeholder:leading-5.5 py-0.5 px-3 rounded-md border">{taskData?.completedDate ? formatDate(new Date(taskData?.completedDate)) : " "}</p>
+                          <p className="bg-[#F9FAFB] font-normal text-black border-gray-200 shadow outline-none text-[14px] leading-6 py-0.5 px-3 rounded-md border">{taskData?.completedDate ? formatDate(new Date(taskData?.completedDate)) : " "}</p>
                         </div>
                         <div className="flex flex-col gap-0.5 w-full">
                           <p className="text-[16px] leading-7 text-black font-normal">{getFieldLabel("assignedTo")}</p>
-                          <p className="bg-[#F9FAFB] placeholder:text-gray-400 font-normal text-black border-gray-200 shadow outline-none text-[14px] leading-6 placeholder:text-[12px] placeholder:leading-5.5 py-0.5 px-3 rounded-md border">{taskData?.assignedTo?.firstName} {taskData?.assignedTo?.lastName}</p>
+                          <p className="bg-[#F9FAFB] font-normal text-black border-gray-200 shadow outline-none text-[14px] leading-6 py-0.5 px-3 rounded-md border">{taskData?.assignedTo?.firstName} {taskData?.assignedTo?.lastName}</p>
                         </div>
                         <div className="flex flex-col gap-0.5 w-full">
                           <p className="text-[16px] leading-7 text-black font-normal">{getFieldLabel("createdBy")}</p>
-                          <p className="bg-[#F9FAFB] placeholder:text-gray-400 font-normal text-black border-gray-200 shadow outline-none text-[14px] leading-6 placeholder:text-[12px] placeholder:leading-5.5 py-0.5 px-3 rounded-md border">{taskData?.createdBy?.firstName} {taskData?.assignedTo?.lastName}</p>
+                          <p className="bg-[#F9FAFB] font-normal text-black border-gray-200 shadow outline-none text-[14px] leading-6 py-0.5 px-3 rounded-md border">{taskData?.createdBy?.firstName} {taskData?.assignedTo?.lastName}</p>
                         </div>
                       </div>
                       <div className="flex flex-col gap-0.5 w-full">

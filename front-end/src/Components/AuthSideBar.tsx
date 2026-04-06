@@ -47,15 +47,15 @@ const AuthSideBar = () => {
         <p className="text-5xl text-white font-medium font-enriqueta">{websiteData?.title}</p>
       </div>
       <div className="flex justify-between items-center w-full absolute bottom-5">
-        <p className="text-[14px] leading-6 w-full text-gray-300">{websiteData?.copyright}</p>
+        <p className="text-[14px] leading-6 w-full font-normal text-gray-300">{websiteData?.copyright}</p>
         <div className="flex gap-5 w-full items-center">
           {
             websiteData?.socialLinks?.map((social: Social, index: number) => {
               const IconComponent = Icons[social?.name?.toLowerCase()];
               if (!IconComponent) return null;
               return (
-                <Link key={social?._id || index} href={social?.link} target="_blank" rel="noopener noreferrer" className="hover:-translate-y-1 cursor-pointer w-10 h-10 rounded-full flex items-center justify-center bg-[#E6C97A] p-1 text-[#1B293F] hover:text-[#E6C97A] transition-all duration-300 hover:bg-[#111B28]">
-                  <IconComponent className="w-5 h-5" />
+                <Link key={social?._id || index} href={social?.link} target="_blank" rel="noopener noreferrer" className="hover:-translate-y-1 cursor-pointer w-8 h-8 rounded-full flex items-center justify-center bg-[#E6C97A] p-1 text-[#1B293F] hover:text-[#E6C97A] transition-all duration-300 hover:bg-[#111B28]">
+                  <IconComponent className="w-4 h-4" />
                 </Link>
               );
             })

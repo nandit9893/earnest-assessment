@@ -29,11 +29,7 @@ const sendMail = async (
       html,
     };
 
-  const info=  await transporter.sendMail(mailOptions);
-        console.log("✅ Email sent successfully");
-    console.log("📧 To:", email);
-    console.log("📌 Subject:", subject);
-    console.log("🆔 Message ID:", info.messageId);
+    await transporter.sendMail(mailOptions);
     return { success: true };
   } catch (error) {
     const message = error instanceof Error ? error.message : "Unknown error";

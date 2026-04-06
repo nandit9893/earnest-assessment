@@ -365,7 +365,7 @@ const Tasks = () => {
                     )
                   }
                 </div>
-                <form onSubmit={searchSubmitForm} className="flex flex-col w-full">
+                <form onSubmit={searchSubmitForm} className="flex flex-col md:w-auto w-full">
                   <p className="text-[16px] leading-6.5 text-black font-normal dark:text-white">Search</p>
                   <div className="flex gap-2 items-center bg-white px-3 py-1.5 dark:bg-[#081028] border border-gray-300 dark:border-gray-600 rounded-md shadow transition-all duration-300 ease-in-out focus-within:border-[#7b57e0] focus-within:shadow-[0_0_8px_0_rgba(0,132,165,0.3)]">
                     <input type="text" name="search" className="w-60 outline-none text-[14px] text-[#334155] dark:text-white font-normal" placeholder="Search... (min. 4 characters)" value={searchInput}onChange={handleSearchInputChange}/>
